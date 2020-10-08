@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+	<title>Yuxiao Fang</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+
+<body>
+	<div id="div1">
+		<table id="TB"></table>	
+	</div>
+	
+	<div id="div2">
+		<p id="P">choose your color:<input id="input"></p><br>
+		<button id="button" onclick="setF()">Set Color</button>
+	</div>
+	
+	<script>
+		var rw=10;
+		var cl=10;
+		var c;
+		var s=0;
+		
+		function tableF(){
+			var tb=document.getElementById("TB");
+			
+			for(var r=0;r<rw;r++){
+				var row=document.createElement("tr");
+				
+				for(var d=0;d<cl;d++){
+					
+					cell=document.createElement("td");
+					row.appendChild(cell);
+				}
+				tb.appendChild(row);
+			}
+			
+			var MyTable=document.getElementById("TB");
+			var rows=MyTable.getElementsByTagName('tr');
+			var cols=MyTable.getElementsByTagName('td');
+			for(var i=0;i<rows.length;i++){
+				for(var k=0;k<cols.length;k++){
+					cols[k].onmouseover=function(){
+						this.style.backgroundColor=c;
+					}
+				}
+			}	
+		}
+		function setF(){
+			C=document.getElementById('input').value;
+			c=C;
+			s=1;
+		}
+		
+		document.getElementById("div1").addEventListener("load",tableF());
+
+	</script>
+</body>
+</html>
